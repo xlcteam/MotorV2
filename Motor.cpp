@@ -24,31 +24,31 @@
 
 MotorV2::MotorV2(int pin1, int pin2)
 {
-	pinMode(pin1,OUTPUT);
-	pinMode(pin2,OUTPUT);
-	_pin1 = pin1;
-	_pin2 = pin2;
+        pinMode(pin1,OUTPUT);
+        pinMode(pin2,OUTPUT);
+        _pin1 = pin1;
+        _pin2 = pin2;
 }
 
 void MotorV2::go(int speed)
 {
-	//use speed values only from range <0,255>
-	speed = abs(speed % 256);
+        //use speed values only from range <0,255>
+        speed = abs(speed % 256);
 
-	//write direction
-    if (speed < 0){
-	    digitalWrite(_pin1, LOW);
-	    analogWrite(_pin2, speed);
-    } else {
-        analogWrite(_pin1, speed);
-        digitalWrite(_pin2, LOW);
-    }
+        //write direction
+        if (speed < 0){
+	            digitalWrite(_pin1, LOW);
+	            analogWrite(_pin2, speed);
+        } else {
+                analogWrite(_pin1, speed);
+                digitalWrite(_pin2, LOW);
+        }
 }
 
 void Motor::stop()
 {
-	digitalWrite(_pin1, LOW);
-    digitalWrite(_pin2, LOW);
+	    digitalWrite(_pin1, LOW);
+        digitalWrite(_pin2, LOW);
 }
 
 
