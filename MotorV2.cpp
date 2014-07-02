@@ -33,7 +33,7 @@ MotorV2::MotorV2(int pin1, int pin2)
 void MotorV2::go(int speed)
 {
         //use speed values only from range <0,255>
-        speed = abs(speed % 256);
+        speed = speed % 256;
 
         //write direction
         if (speed < 0){
