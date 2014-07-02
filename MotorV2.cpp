@@ -32,15 +32,12 @@ MotorV2::MotorV2(int pin1, int pin2)
 
 void MotorV2::go(int speed)
 {
-        //use speed values only from range <0,255>
-        speed = speed % 256;
-
-        //write direction
+        //write it
         if (speed < 0){
                 digitalWrite(_pin1, LOW);
-                analogWrite(_pin2, speed);
+                analogWrite(_pin2, speed % 256);
         } else {
-                analogWrite(_pin1, speed);
+                analogWrite(_pin1, speed % 256);
                 digitalWrite(_pin2, LOW);
         }
 }
