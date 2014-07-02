@@ -37,8 +37,8 @@ void MotorV2::go(int speed)
 
         //write direction
         if (speed < 0){
-	            digitalWrite(_pin1, LOW);
-	            analogWrite(_pin2, speed);
+                digitalWrite(_pin1, LOW);
+                analogWrite(_pin2, speed);
         } else {
                 analogWrite(_pin1, speed);
                 digitalWrite(_pin2, LOW);
@@ -47,7 +47,7 @@ void MotorV2::go(int speed)
 
 void Motor::stop()
 {
-	    digitalWrite(_pin1, LOW);
+        digitalWrite(_pin1, LOW);
         digitalWrite(_pin2, LOW);
 }
 
