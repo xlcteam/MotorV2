@@ -2,7 +2,7 @@
  * MotorV2.cpp
  * This file is part of MotorV2
  *
- * Copyright (C) 2014, XLC Team
+ * Copyright (C) 2014, Adrian Matejov, XLC Team
  *
  * Motor is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
