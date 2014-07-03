@@ -33,12 +33,12 @@
 class MotorV2
 {
 	public:
-		MotorV2(int pin1, int pin2);
+		MotorV2(int dir, int pwm);
 		void go(int speed);
 		void stop();
 	private:
-		int _pin1;
-		int _pin2;
+		int _dir;
+		int _pwm;
 };
 
 #endif

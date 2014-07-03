@@ -22,32 +22,33 @@
 
 #include "MotorV2.h"
 
-MotorV2::MotorV2(int pin1, int pin2)
+MotorV2::MotorV2(int dir, int pwm)
 {
-        pinMode(pin1,OUTPUT);
-        pinMode(pin2,OUTPUT);
-        _pin1 = pin1;
-        _pin2 = pin2;
+        pinMode(dir,OUTPUT);
+        pinMode(pwm,OUTPUT);
+        _dir = dir;
+        _pwm = pwm;
 }
 
 void MotorV2::go(int speed)
 {
+        int type = HIGH;
+
+        // if the speed is lower than 0, rotate to other direction
+        if (speed < 0){
+            type = LOW;
+        }
         // speed can be from range <0,255>
-        speed = abs(speed % 256);
+        speed = 255 - abs(speed % 256);
 
         // write zero to one pin and speed to second
-        if (speed < 0){
-                digitalWrite(_pin1, LOW);
-                analogWrite(_pin2, speed);
-        } else {
-                analogWrite(_pin1, speed);
-                digitalWrite(_pin2, LOW);
-        }
+        digitalWrite(_pin1, LOW);
+        analogWrite(_pin2, speed);
 }
 
 void MotorV2::stop()
 {
-        // to stop motors write zero to both pins
-        digitalWrite(_pin1, LOW);
-        digitalWrite(_pin2, LOW);
+        // to stop motors write zero to direction and 255 to pwm
+        digitalWrite(_dir, LOW);
+        analogWrite(_pwm, 255);
 }
