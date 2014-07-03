@@ -32,20 +32,22 @@ MotorV2::MotorV2(int pin1, int pin2)
 
 void MotorV2::go(int speed)
 {
-        //write it
+        // speed can be from range <0,255>
+        speed = abs(speed % 256);
+
+        // write zero to one pin and speed to second
         if (speed < 0){
                 digitalWrite(_pin1, LOW);
-                analogWrite(_pin2, speed % 256);
+                analogWrite(_pin2, speed);
         } else {
-                analogWrite(_pin1, speed % 256);
+                analogWrite(_pin1, speed);
                 digitalWrite(_pin2, LOW);
         }
 }
 
 void Motor::stop()
 {
+        // to stop motors write zero to both pins
         digitalWrite(_pin1, LOW);
         digitalWrite(_pin2, LOW);
 }
-
-
