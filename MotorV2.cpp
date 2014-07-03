@@ -45,7 +45,7 @@ void MotorV2::go(int speed)
         }
 }
 
-void Motor::stop()
+void MotorV2::stop()
 {
         // to stop motors write zero to both pins
         digitalWrite(_pin1, LOW);
