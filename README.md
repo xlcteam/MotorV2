@@ -28,7 +28,7 @@ Then you can define a new motor
 	
 	MotorV2 motorA = MotorV2(13, 11);
 
-where `13` is  the first pin and `11` is the second.
+where `13` is the direction pin and `11` is the PWM pin on driver.
 
 
 Next thing you might want to do is to move the motor. This can be done this way
