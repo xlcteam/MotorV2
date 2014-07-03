@@ -26,7 +26,7 @@ You can just include Motor library in your Arduino sketch by putting
 
 Then you can define a new motor 
 	
-	Motor motorA = Motor(13, 11);
+	MotorV2 motorA = MotorV2(13, 11);
 
 where `13` is  the first pin and `11` is the second.
 
