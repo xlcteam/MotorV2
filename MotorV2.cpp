@@ -41,10 +41,10 @@ void MotorV2::go(int speed)
 
         // speed can be from range <0,255>
         // 0 is the max speed, 255 to stops motor        
-        speed = 255 - abs(speed % 256);
+        speed = 255 - (abs(speed) % 256);
 
         // write zero to one pin and speed to second
-        digitalWrite(_dir, LOW);
+        digitalWrite(_dir, type);
         analogWrite(_pwm, speed);
 }
 
