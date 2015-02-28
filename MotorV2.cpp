@@ -2,7 +2,7 @@
  * MotorV2.cpp
  * This file is part of MotorV2
  *
- * Copyright (C) 2014, Adrian Matejov, XLC Team
+ * Copyright (C) 2014-2015, Adrian Matejov, XLC Team
  *
  * Motor is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,5 +52,11 @@ void MotorV2::stop()
 {
         // to stop motors write zero to direction and 255 to pwm
         digitalWrite(_dir, LOW);
+        analogWrite(_pwm, 255);
+}
+
+void MotorV2::off()
+{
+        digitalWrite(_dir, HIGH);
         analogWrite(_pwm, 255);
 }

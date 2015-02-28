@@ -2,7 +2,7 @@
  * MotorV2.h - Library for controling DC motors connected to new drivers
  * This file is part of Motor
  *
- * Copyright (C) 2014, Adrian Matejov, XLC Team
+ * Copyright (C) 2014-2015, Adrian Matejov, XLC Team
  *
  * Motor is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,6 +36,7 @@ class MotorV2
 		MotorV2(int dir, int pwm);
 		void go(int speed);
 		void stop();
+        void off();
 	private:
 		int _dir;
 		int _pwm;
