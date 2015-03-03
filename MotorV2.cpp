@@ -34,29 +34,30 @@ void MotorV2::go(int speed)
 {
         int type = HIGH;
 
-        // if the speed is lower than 0, rotate to other direction
+        /* if the speed is lower than 0, rotate to other direction */
         if (speed < 0){
             type = LOW;
         }
 
-        // speed can be from range <0,255>
-        // 0 is the max speed, 255 to stops motor        
+        /* speed can be from range <0,255>
+           0 is the max speed, 255 to stops motor */
         speed = 255 - (abs(speed) % 256);
 
-        // write zero to one pin and speed to second
+        /* write zero to one pin and speed to second */
         digitalWrite(_dir, type);
         analogWrite(_pwm, speed);
 }
 
 void MotorV2::stop()
 {
-        // to stop motors write zero to direction and 255 to pwm
+        /* to stop motors write zero to direction and 255 to pwm */
         digitalWrite(_dir, LOW);
         analogWrite(_pwm, 255);
 }
 
 void MotorV2::off()
 {
+        /* prevent motors to be switched off */
         digitalWrite(_dir, HIGH);
         analogWrite(_pwm, 255);
 }
